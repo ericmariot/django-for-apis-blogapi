@@ -4,11 +4,13 @@ from .models import Post
 from .serializers import PostSerializer, UserSerializer
 from .permissions import IsAuthorOrReadOnly
 
+
 class PostViewSet(viewsets.ModelViewSet):
-  permission_classes = (IsAuthorOrReadOnly,)
-  queryset = Post.objects.all()
-  serializer_class = PostSerializer
-  
+    permission_classes = (IsAuthorOrReadOnly,)
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
+
 class UserViewSet(viewsets.ModelViewSet):
-  queryset = get_user_model().objects.all()
-  serializer_class = UserSerializer
+    queryset = get_user_model().objects.all()
+    serializer_class = UserSerializer
